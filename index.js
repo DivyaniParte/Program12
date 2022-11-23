@@ -23,7 +23,7 @@ const app = new express();
 
 app.use(express.json());
 global.loggedIn = null;
-app.use(expressSession({ secret: "bathu123", resave: false, saveUninitialized: true, store: mongostore.create({ mongoUrl: process.env.MONGO_URL }) }));
+app.use(expressSession({ secret: "parte211", resave: false, saveUninitialized: true, store: mongostore.create({ mongoUrl: process.env.MONGO_URL }) }));
 app.use("*", loggedInMiddleware);
 app.use(express.urlencoded({ extended: true }));
 app.use(fileUpload());
