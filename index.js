@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
-const mongostore = require("connect-mongo");
+const mongoStore = require("connect-mongo");
 const expressSession = require("express-session");
 const fileUpload = require("express-fileupload");
 const customValidate = require('./middlewares/customValidate');
@@ -23,7 +23,7 @@ const app = new express();
 
 app.use(express.json());
 global.loggedIn = null;
-app.use(expressSession({ secret: "parte211", resave: false, saveUninitialized: true, store: mongostore.create({ mongoUrl: process.env.MONGO_URL }) }));
+app.use(expressSession({ secret: "parte211", resave: false, saveUninitialized: true, store: mongoStore.create({ mongoUrl: process.env.MONGO_URL }) }));
 app.use("*", loggedInMiddleware);
 app.use(express.urlencoded({ extended: true }));
 app.use(fileUpload());
